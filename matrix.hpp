@@ -134,7 +134,7 @@ vector<T>& Matrix<T>::operator [] (size_t i) {
 template <class T>
 void Matrix<T>::increaseAllBy(const T& num) {
     for_each(data.begin(), data.end(), [n = num](vector<T>& vec){
-        for_each(vec.begin(), vec.end(), [n](T& elem){
+        for_each(vec.begin(), vec.end(), [&](T& elem){
             elem += n;
         });
     });
@@ -143,7 +143,7 @@ void Matrix<T>::increaseAllBy(const T& num) {
 template <class T>
 void Matrix<T>::decreaseAllBy(const T& num) {
     for_each(data.begin(), data.end(), [n = num](vector<T>& vec){
-        for_each(vec.begin(), vec.end(), [n](T& elem){
+        for_each(vec.begin(), vec.end(), [&](T& elem){
             elem -= n;
         });
     });
